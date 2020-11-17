@@ -6,8 +6,8 @@
     <parameter name="deviceName" value="desktop"/>
 
     <!-- 若运行远端，则使用 hub 参数配置示例 -->
-<!--    <parameter name="remoteIP" value="10.102.20.41"/>-->
-<!--    <parameter name="remotePort" value="4444"/>-->
+    <parameter name="remoteIP" value="10.102.20.41"/>
+    <parameter name="remotePort" value="4444"/>
     <!--    <parameter name="browserVersion" value="79.0.3945.130"/>-->
     <!-- 测试套件 -->
     <suite-files>
