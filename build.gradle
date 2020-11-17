@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+}
+
+group 'com.tim'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation('org.seleniumhq.selenium:selenium-java:3.141.59')
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation('org.slf4j:slf4j-api:1.7.30')
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+    implementation('org.apache.logging.log4j:log4j-api:2.13.3')
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation('org.apache.logging.log4j:log4j-core:2.13.3')
+    // https://mvnrepository.com/artifact/org.testng/testng
+    implementation('org.testng:testng:7.3.0')
+
+    //处理Chrome报错问题
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation('com.google.guava:guava:29.0-jre')
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    implementation('org.projectlombok:lombok:1.18.16')
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-pool2
+    implementation('org.apache.commons:commons-pool2:2.9.0')
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation('commons-io:commons-io:2.8.0')
+
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation('com.google.code.gson:gson:2.8.6')
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation('org.apache.commons:commons-lang3:3.11')
+
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation('org.testng:testng:7.3.0')
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
+    testImplementation('org.apache.logging.log4j:log4j-slf4j-impl:2.13.3')
+
+    // 注释处理器
+    annotationProcessor('org.projectlombok:lombok:1.18.16')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.16')
+
+}
+test {
+    // 编译测试TestNG运行 -- gradle clean test 命令
+    useTestNG()
+    systemProperty "file.encoding", "UTF-8"
+    // 指定执行
+    options.suites("src/test/resources/testng.xml")
+//    options.suites("src/test/resources/ACE_Regression/${xmlName}.xml")
+}
+
