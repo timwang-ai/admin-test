@@ -3,16 +3,11 @@ package com.tim.utils;
 import com.tim.common.TestCommon;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import sun.misc.BASE64Encoder;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -57,28 +52,4 @@ public class ScreenshotUtil {
             log.error("截图操作异常！");
         }
     }
-//
-//    /**
-//     * Java 将图片转换成base64编码字符串
-//     *
-//     * @param imagePath 图片路径
-//     * @return 返回数据
-//     * @throws IOException IO异常
-//     */
-//    public static String encodeToString(String imagePath) throws IOException {
-//        String type = StringUtils.substring(imagePath, imagePath.lastIndexOf(".") + 1);
-//        BufferedImage image = ImageIO.read(new File(imagePath));
-//        String imageString = null;
-//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//        try {
-//            ImageIO.write(image, type, bos);
-//            byte[] imageBytes = bos.toByteArray();
-//            BASE64Encoder encoder = new BASE64Encoder();
-//            imageString = encoder.encode(imageBytes);
-//            bos.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return imageString;
-//    }
 }
